@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react'
+import './App.css'
+import { MyContext } from './myContext'
+import ChildOne from './components/childOne'
+import ChildTwo from './components/childTwo'
+import ChildThree from './components/childThree'
 
 function App() {
+  const { commonData } = useContext(MyContext)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Content : <b>{commonData}</b></h2>
+      <div className="children">
+        <div className="child child-1"><ChildOne /></div>
+        <div className="child child-2"><ChildTwo /></div>
+        <div className="child child-3"><ChildThree /></div>
+      </div>
     </div>
   );
 }
